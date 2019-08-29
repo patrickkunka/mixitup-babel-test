@@ -1,5 +1,5 @@
 import mixitup from 'mixitup';
-import mixitupPagination from './vendor/mixitup-pagination.min';
+import mixitupPagination from '../vendor/mixitup-pagination';
 
 mixitup.use(mixitupPagination);
 

@@ -12,9 +12,23 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                // NB: the directory containing your mixitup extensions
+                // must be excluded from transpilation
+                exclude: /(node_modules|vendor)/,
                 use: {
-                    loader: 'babel-loader'
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            [
+                                '@babel/env',
+                                {
+                                    useBuiltIns: 'usage',
+                                    corejs: 3,
+                                    modules: false
+                                }
+                            ]
+                        ]
+                    }
                 }
             }
         ]
